@@ -55,25 +55,26 @@ rfind --name main.rs
 ### Positional Arguments
 Search specific directories directly:
 ```bash
-rfind /usr/bin --name python
+rfind -p /usr/bin -n python
 ```
 
 ### Advanced Filters
 Filter by **extension**, **type**, and **size**:
 ```bash
 # Find all Rust files in Home directory
-rfind ~ --extension rs
+rfind --path ~ --extension rs
 
 # Find files larger than 10MB in /tmp
-rfind /tmp --type f --min-size 10485760
+rfind --path /tmp --type f --min-size 10485760
 
 # Find directories named "config"
-rfind / --type d --name config
+rfind --path / --type d --name config
 ```
 
 ### Options
 | Flag | Short | Description | Example |
 | :--- | :--- | :--- | :--- |
+| `--path` | `-p` | Path to Search | `--path /home/user` | 
 | `--name` | `-n` | Search by filename pattern | `--name "main.rs"` |
 | `--extension` | `-e` | Filter by file extension | `--extension txt` |
 | `--type` | `-t` | Filter by type (`f`=file, `d`=dir, `l`=symlink) | `--type d` |
